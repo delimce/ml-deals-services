@@ -35,18 +35,18 @@ class ChartsController extends BaseController
     /**
      * successful items
      */
-    public function getTotalSi()
+    public function getTotals()
     {
 
         $resp = new RestApi();
 
-        $data = VwDealsTotals::select("code", "name", "si")->get();
+        $data = VwDealsTotals::select("code", "name", "si", "gmvlc")->get();
 
         $result = array();
 
         foreach ($data as $deal) {
 
-            $temp = array("code" => $deal->code, "name" => $deal->name, "si" => $deal->si);
+            $temp = array("code" => $deal->code, "name" => $deal->name, "si" => $deal->si, "gmv" => $deal->gmvlc);
 
             $result[] = $temp;
 
@@ -58,5 +58,6 @@ class ChartsController extends BaseController
         return $resp->responseJson();
 
     }
+
 
 }
