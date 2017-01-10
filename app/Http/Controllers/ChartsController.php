@@ -40,13 +40,13 @@ class ChartsController extends BaseController
 
         $resp = new RestApi();
 
-        $data = VwDealsTotals::select("code", "name", "si", "gmvlc")->get();
+        $data = VwDealsTotals::select("code", "name", "si", "gmvlc", "quarter")->get();
 
         $result = array();
 
         foreach ($data as $deal) {
 
-            $temp = array("code" => $deal->code, "name" => $deal->name, "si" => $deal->si, "gmv" => $deal->gmvlc);
+            $temp = array("code" => $deal->code, "name" => $deal->name, "si" => $deal->si, "gmv" => $deal->gmvlc, "quarter" => $deal->quarter);
 
             $result[] = $temp;
 
