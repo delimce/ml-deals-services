@@ -10,6 +10,7 @@ namespace app\Http\Controllers;
 
 use App\Libs\Api\RestApi;
 use App\Models\Charts\VwDealsTotals;
+use App\Models\Charts\VwSellersTotals;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
@@ -33,7 +34,7 @@ class ChartsController extends BaseController
 
 
     /**
-     * successful items
+     * totals
      */
     public function getTotals()
     {
@@ -56,6 +57,33 @@ class ChartsController extends BaseController
         $resp->setContent($result);
 
         return $resp->responseJson();
+
+    }
+
+
+    public function getSellerListTotals()
+    {
+
+        $resp = new RestApi();
+
+        $data = VwSellersTotals::all();
+
+
+        $result = array();
+
+        foreach ($data as $seller) {
+
+            $temp = array("id" => $seller->seller_id, "name" => $seller->name, "si" => $seller->si, "gmv" => $seller->gmv);
+
+            $result[] = $temp;
+
+
+        }
+
+        $resp->setContent($result);
+
+        return $resp->responseJson();
+
 
     }
 

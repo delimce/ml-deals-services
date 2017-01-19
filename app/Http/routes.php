@@ -19,3 +19,4 @@ $app->get('/', function () use ($app) {
 $app->get('charts/dealMain', 'ChartsController@getMainData');
 
 $app->get('charts/dealsTotals', 'ChartsController@getTotals');
+$app->get('charts/sellersTotals', 'ChartsController@getSellerListTotals');
