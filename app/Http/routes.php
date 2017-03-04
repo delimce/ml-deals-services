@@ -21,3 +21,4 @@ $app->get('charts/dealMain', 'ChartsController@getMainData');
 $app->get('charts/dealsTotals', 'ChartsController@getTotals');
 $app->get('charts/sellersTotals', 'ChartsController@getSellerListTotals');
 $app->get('deal/getAll','DealsController@getAll');
+$app->get('deal/{deal}/status/{status}', ['uses' =>'DealsController@setStatusDeal']);

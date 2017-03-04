@@ -56,6 +56,14 @@ class RestApi
         $this->success = 'false';
     }
 
+
+    public function setErrorDefault(){
+
+        $this->setError("error, service has failed");
+
+    }
+
+
     /**
      * @param mixed $content
      */
