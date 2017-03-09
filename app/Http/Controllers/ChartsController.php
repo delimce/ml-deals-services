@@ -73,7 +73,12 @@ class ChartsController extends BaseController
 
         foreach ($data as $seller) {
 
-            $temp = array("id" => $seller->seller_id, "name" => $seller->name, "si" => $seller->si, "gmv" => $seller->gmv);
+            $temp = array("id" => $seller->seller_id,
+                "name" => $seller->name,
+                "si" => $seller->si,
+                "gmv" => $seller->gmv,
+                "asp" => bcdiv($seller->gmv,($seller->si==0)?1:$seller->si,2)
+            );
 
             $result[] = $temp;
 
